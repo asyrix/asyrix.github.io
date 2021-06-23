@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/index.scss';
+import '@style/index.scss';
 
 type ResponsiveValue = number | string | { [key: string]: number | string | null } | boolean | null | undefined
 

@@ -3,8 +3,7 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@config": ["src/config"],
-      "@api-middleware": ["src/api-middleware"]
+      "@style": ["src/style"]
     },
     "jsx": "react",
     "module": "esnext",

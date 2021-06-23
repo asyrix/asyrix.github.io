@@ -16,9 +16,9 @@ module.exports = {
     },
     resolve: {
         plugins: [new TsconfigPathsPlugin()],
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.scss'],
         alias: {
-            '@config': path.resolve(__dirname, 'src/config')
+            '@style': path.resolve(__dirname, 'src/style')
         }
     },
     module: {
