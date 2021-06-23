@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+}
+
+.responsive-values {
+    padding: 5rem;
+
+    &__sep {
+        height: 1rem;
+        border-bottom: solid 0.1rem #ccc;
+    }
+
+    &__code {
+        border: solid 0.1rem #e8ddca;
+        background: #fff9ed;
+        padding: 1rem;
+        list-style: none;
+        font-family: monospace;
+
+        &--result {
+            background: #f3f8ee;
+            border-color: #cbdeb4;
+        }
+    }
+}
