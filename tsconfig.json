@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@style": ["src/style"]
+      "@style": ["./src/style"]
     },
     "jsx": "react",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "lib": [
       "dom",
@@ -14,9 +15,10 @@
     ],
     "strict": true,
     "sourceMap": true,
-    "target": "esnext",
+    "target": "esnext"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/style"
   ]
 }
