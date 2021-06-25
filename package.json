@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --port 3000",
     "build": "cross-env NODE_ENV=production webpack",
-    "test": "mocha -r ts-node/register -r ignore-styles -r jsdom-global/register -r tsconfig-paths/register src/**/*.spec.tsx"
+    "test": "mocha -r ts-node/register -r ignore-styles -r jsdom-global/register -r tsconfig-paths/register src/**/*.spec.{ts,tsx}"
   },
   "author": "Tomasz Gemski",
   "license": "ISC",
