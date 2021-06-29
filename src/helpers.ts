@@ -17,8 +17,12 @@ export function isNull(value: any) {
  */
 export function compare(a: any, b: any) {
     try {
-        // Fastest way. This can be replaced with a deep comparison if needed.
-        return JSON.stringify(a) === JSON.stringify(b);
+        if (typeof a === 'object' && typeof b === 'object') {
+            // Fastest way. This can be replaced with a deep comparison if needed.
+            return JSON.stringify(a) === JSON.stringify(b);
+        }
+
+        return a === b;
     } catch (err) {
         console.error(err);
 

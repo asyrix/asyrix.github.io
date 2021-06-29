@@ -8,7 +8,7 @@ const version = require('./package.json').version;
 
 module.exports = {
     mode: NODE_ENV,
-    entry: './src/index.tsx',
+    entry: './src/index.ts',
     output: {
         path: `${__dirname}/dist/${version}`,
         publicPath: '/',
@@ -18,7 +18,7 @@ module.exports = {
         plugins: [new TsconfigPathsPlugin()],
         extensions: ['.ts', '.js', '.scss'],
         alias: {
-            '@style': path.resolve(__dirname, 'src/style')
+            '@helpers': path.resolve(__dirname, 'src/helpers.ts')
         }
     },
     module: {
