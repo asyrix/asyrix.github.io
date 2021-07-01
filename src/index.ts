@@ -8,7 +8,7 @@ export type ResponsiveNull = null;
 export type ResponsiveEmpty = ResponsiveNull | ResponsiveUndefined;
 export type ResponsiveNumber = number | ResponsiveEmpty;
 export type ResponsiveString = string | ResponsiveEmpty;
-export type ResponsiveObject = { [key: string]: unknown } | ResponsiveEmpty;
+export type ResponsiveObject = { [key: string]: ResponsiveValue } | ResponsiveEmpty;
 export type ResponsiveBoolean = boolean | ResponsiveEmpty;
 export type ResponsiveValue = ResponsiveNumber | ResponsiveString | ResponsiveBoolean | ResponsiveObject | ResponsiveEmpty;
 
@@ -18,8 +18,8 @@ const responsiveValues = new ResponsiveValues();
 responsiveValues.registerModule({ sum, getContainerWidth, maxValueKey });
 
 export type ResponsiveValueCombined = ResponsiveValue | ResponsiveValue[] | ResponsiveValue[][];
-export type ResponsiveValueModuleContainer = (...params: any[]) => ResponsiveValueModuleFun;
-export type ResponsiveValueModuleFun = (...args: any[]) => ResponsiveValueCombined;
+export type ResponsiveValueModuleContainer = (...args: any[]) => ResponsiveValueModuleFun;
+export type ResponsiveValueModuleFun = (...params: any[]) => ResponsiveValueCombined;
 export type ResponsiveValueModule = { [key: string]: ResponsiveValueModuleFun };
 
 export default function rv(arg1: ResponsiveValueCombined, arg2?: ResponsiveValueCombined): ResponsiveValueModule {
@@ -27,7 +27,7 @@ export default function rv(arg1: ResponsiveValueCombined, arg2?: ResponsiveValue
 
     Object.entries(responsiveValues.modules).forEach(([name, module]) => {
         modules[name] = (...params) => {
-            return module(...params).bind(responsiveValues, arg1, arg2)();
+            return module(...params).call(responsiveValues, arg1, arg2);
         };
     });
 

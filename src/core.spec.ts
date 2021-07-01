@@ -17,7 +17,7 @@ describe('Should test the methods of the ResponsiveValues component', () => {
 
         rv.registerModule({ dummyModule });
 
-        const arr = rv([null, 1, 2, 3]).dummyModule({ reverse: true });
+        const arr = rv([null, 1, 2, 3]).dummyModule({ reverse: {} });
 
         expect(arr).to.have.all.members([3, 2, 1]);
     });
