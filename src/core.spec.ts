@@ -3,7 +3,7 @@ import rv from './index';
 import ResponsiveValues from './core';
 import { ResponsiveValue } from './index';
 
-describe('Should test the methods of the ResponsiveValues component', () => {
+describe('Should test the methods of the ResponsiveValues instance', () => {
     it('Should register custom module', () => {
         function dummyModule(params: { [key: string]: string | number | boolean }) {
             return function reverseAndCompress(this: ResponsiveValues, args: ResponsiveValue[]) {
