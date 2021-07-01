@@ -5,7 +5,7 @@ import { ResponsiveValue } from './index';
 
 describe('Should test the methods of the ResponsiveValues component', () => {
     it('Should register custom module', () => {
-        function dummyModule(params: { [key: string]: string }) {
+        function dummyModule(params: { [key: string]: string | number | boolean }) {
             return function reverseAndCompress(this: ResponsiveValues, args: ResponsiveValue[]) {
                 if (params.reverse) {
                     return this.compress(args.reverse());

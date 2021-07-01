@@ -22,7 +22,7 @@ There are three default modules: `sum`, `maxValueKey`, `getContainerWidth`. You 
 import { ResponsiveValue } from 'responsive-values';
 
 function dummyModule(params) {
-    return function dummyModule(params: { [key: string]: string }) {
+    return function dummyModule(params: { [key: string]: string | number | boolean }) {
         return function reverseAndCompress(this: ResponsiveValues, args: ResponsiveValue[]) {
             // modify passed arguments here, reverse and compress are just examples
             if (params.reverse) {
