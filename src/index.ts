@@ -28,7 +28,7 @@ export default function rv(arg1: ResponsiveValueCombined, arg2?: ResponsiveValue
     Object.entries(responsiveValues.modules).forEach(([name, module]) => {
         modules[name] = (...params) => {
             return module(...params).bind(responsiveValues, arg1, arg2)();
-        }
+        };
     });
 
     return modules;
