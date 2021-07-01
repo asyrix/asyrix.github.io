@@ -3,10 +3,6 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "baseUrl": "./",
-    "paths": {
-      "@style": ["./src/style"]
-    },
-    "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": [
@@ -18,7 +14,6 @@
     "target": "esnext"
   },
   "exclude": [
-    "node_modules",
-    "src/style"
+    "node_modules"
   ]
 }

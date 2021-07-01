@@ -1,7 +1,3 @@
-const sass = require('sass');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV.trim() : 'development';
 const version = require('./package.json').version;
@@ -16,10 +12,7 @@ module.exports = {
     },
     resolve: {
         plugins: [new TsconfigPathsPlugin()],
-        extensions: ['.ts', '.js', '.scss'],
-        alias: {
-            '@helpers': path.resolve(__dirname, 'src/helpers.ts')
-        }
+        extensions: ['.ts', '.js', '.scss']
     },
     module: {
         rules: [
@@ -27,66 +20,21 @@ module.exports = {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 resolve: {
-                    extensions: ['.ts', '.tsx', '.js', '.json'],
+                    extensions: ['.ts', '.js', '.json'],
                 },
                 use: 'ts-loader',
             },
             {
-                test: /\.scss$/,
+                test: /\.ts$/,
+                enforce: 'pre',
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: NODE_ENV === 'development'
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: NODE_ENV === 'development',
-                            implementation: sass
-                        }
+                        loader: 'tslint-loader',
+                        options: { /* Loader options go here */ }
                     }
                 ]
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'fonts/'
-                    }
-                }]
-            },
-            {
-                test: /\.(ico|jpe?g|png|gif)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'images/'
-                    }
-                }]
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
             }
         ]
     },
-    devtool: NODE_ENV === 'production' ? undefined : 'source-map',
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-        }),
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-            inject: false
-        })
-    ],
+    devtool: NODE_ENV === 'production' ? undefined : 'source-map'
 };
