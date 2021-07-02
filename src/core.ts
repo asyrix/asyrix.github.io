@@ -11,6 +11,9 @@ import {
 } from './index';
 
 export default class ResponsiveValues {
+    /*
+     * Registers new module or several modules simultaneously.
+     */
     registerModule(modules: { [key: string]: ResponsiveValueModuleContainer }) {
         Object.entries(modules).forEach(([name, module]) => {
             this.modules[name] = module.bind(this);
