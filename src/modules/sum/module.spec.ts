@@ -3,7 +3,7 @@ import rv from '../../index';
 
 describe('Should test the methods of the Sum module', () => {
     it('Should sum single responsive values', () => {
-        const summed = rv([5, 8]).sum(100);
+        const summed = rv([5, 8]).sum();
 
         expect(summed).to.be.equal(13);
     });
